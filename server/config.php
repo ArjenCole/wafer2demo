@@ -9,15 +9,15 @@ $config = [
     'qcloudSecretId' => 'AKID9C9ze81cfcP1SjSlhWAexEpLbmmbnoZG',//你的腾讯云 SecretId
     'qcloudSecretKey' => 'gBUcZSGtOkxzsZ7TemkX9ZryufFeR3Uk',//你的腾讯云 SecretKey
 
-
     // 微信小程序 AppID
     'appId' => 'wxeaf289464a1bf1cb',
 
     // 微信小程序 AppSecret
-    'appSecret' => '',
+    'appSecret' => 'bd8cc61872b7abe8578421f0a3ed7ae0',
 
     // 使用腾讯云代理登录
     'useQcloudLogin' => false,
+
 
     /**
      * MySQL 配置，用来存储 session 和用户信息
@@ -29,7 +29,7 @@ $config = [
         'port' => 3306,
         'user' => 'root',
         'db'   => 'cAuth',
-        'pass' => 'wx00dd65d70f19dcec',
+        'pass' => 'wxeaf289464a1bf1cb',
         'char' => 'utf8mb4'
     ],
 
