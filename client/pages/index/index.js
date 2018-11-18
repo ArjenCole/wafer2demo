@@ -8,7 +8,8 @@ Page({
         userInfo: {},
         logged: false,
         takeSession: false,
-        requestResult: ''
+        requestResult: '',
+        imgUrl:''
     },
 
     bindGetUserInfo: function () {
