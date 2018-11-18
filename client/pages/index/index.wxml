@@ -36,4 +36,9 @@
             <text>快速增加 CGI</text>
         </navigator>
     </view>
+
+        <!-- 插入数据库记录 -->
+    <view class="uploader">
+      <button bindtap="addRecrod">插入数据库记录</button>
+    </view>
 </view>

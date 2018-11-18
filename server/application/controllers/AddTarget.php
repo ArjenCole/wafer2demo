@@ -7,6 +7,7 @@ const targets = db.collection('bond_Target')
 
 class AddTarget extends CI_Controller {
     public function index() {
+      console.log(targets),
       db.collection('bond_Target').add({
         // data 字段表示需新增的 JSON 数据
         data: {

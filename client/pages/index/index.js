@@ -217,5 +217,24 @@ Page({
         }
         util.showBusy('信道连接中...')
         this.setData({ tunnelStatus: 'closed' })
+    },
+
+    addRecrod: function(){
+      util.showBusy('插入中...')
+      var that = this
+      qcloud.request({
+        url: `${config.service.host}/weapp/AddTarget`,
+        login: false,
+        success(result) {
+          util.showSuccess('请求成功完成')
+          that.setData({
+            requestResult: JSON.stringify(result.data)
+          })
+        },
+        fail(error) {
+          util.showModel('请求失败', error);
+          console.log('request fail', error);
+        }
+      })
     }
 })
