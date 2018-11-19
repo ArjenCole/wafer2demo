@@ -223,7 +223,7 @@ Page({
       util.showBusy('插入中...')
       var that = this
       qcloud.request({
-        url: `${config.service.host}/weapp/AddTarget`,
+        url: `${config.service.host}/weapp/addTarget`,
         login: false,
         success(result) {
           util.showSuccess('请求成功完成')
