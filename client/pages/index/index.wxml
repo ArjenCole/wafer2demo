@@ -41,6 +41,7 @@
     <view class="uploader">
       <text bindtap="addRecord" class="uploader-text">插入数据库记录</text>
       <text bindtap="getRecord" class="uploader-text">获取数据库记录</text>
+      <text bindtap="updateRecord" class="uploader-text">更新数据库记录</text>
     </view>
 
 </view>

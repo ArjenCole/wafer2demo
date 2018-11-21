@@ -254,9 +254,6 @@ Page({
  
     },
     getRecord: function(){
-      console.log(this.data.userInfo.openId);
-
-
       wx.cloud.init();
       const db = wx.cloud.database();
       const bond = db.collection('bond');
@@ -265,21 +262,34 @@ Page({
         _openid:this.data.userInfo.openId
       }).get({
         success:function(res){
-          console.log(res.data)
+          console.log("res.data._id:");
+          console.log(res.data[0]);
+          return res.data[0]._id;
         }
       })
     },
+    updateRecord:function(){
 
-    Target: function(pName,pDateStart,pDateStop,pLowLimit){
-      res={
-        Name:pName,
-        DateStart: pDateStart,
-        DateStop: pDateStart,
-        LowLomit: pLowLimit,
-        DatesChecked: []
-      };
-      return res;
+      console.log("update")
 
-    },
+      wx.cloud.init();
+      const db = wx.cloud.database();
+      const bond = db.collection('bond');
+
+      const _ = db.command
+      db.collection('bond').doc("W_VgQ5SXoyWmaEi7").update({
+        data: {
+          DatesChecked: _.push(new Date(Date.now()))
+        },
+        success: function (res) {
+          console.log("su");          
+          console.log(res)
+        },
+        fail: function (e){
+          console.log("fa");          
+          console.log(e);
+        }
+      })
+    }
     
 })
