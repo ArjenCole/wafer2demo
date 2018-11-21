@@ -219,12 +219,13 @@ Page({
         this.setData({ tunnelStatus: 'closed' })
     },
 
-    addRecrod: function(){
+    addRecord: function(){
       wx.cloud.init();
       const db = wx.cloud.database();
       const bond = db.collection('bond');
       db.collection('bond').add({
         // data 字段表示需新增的 JSON 数据
+        /*
         data: {
           // _id: 'todo-identifiant-aleatoire', // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
           description: "learn cloud database",
@@ -236,6 +237,14 @@ Page({
           // 为待办事项添加一个地理位置（113°E，23°N）
           location: new db.Geo.Point(113, 23),
           done: false
+        }
+        */
+        data :{
+          Name: "目标一",
+          DateStart: new Date(Date.now()),
+          DateStop: new Date("2019-09-01"),
+          LowLomit: 360,
+          DatesChecked: []
         },
         success: function (res) {
           // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
@@ -243,5 +252,34 @@ Page({
         }
       })
  
-    }
+    },
+    getRecord: function(){
+      console.log(this.data.userInfo.openId);
+
+
+      wx.cloud.init();
+      const db = wx.cloud.database();
+      const bond = db.collection('bond');
+
+      db.collection('bond').where({
+        _openid:this.data.userInfo.openId
+      }).get({
+        success:function(res){
+          console.log(res.data)
+        }
+      })
+    },
+
+    Target: function(pName,pDateStart,pDateStop,pLowLimit){
+      res={
+        Name:pName,
+        DateStart: pDateStart,
+        DateStop: pDateStart,
+        LowLomit: pLowLimit,
+        DatesChecked: []
+      };
+      return res;
+
+    },
+    
 })

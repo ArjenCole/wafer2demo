@@ -39,6 +39,8 @@
 
         <!-- 插入数据库记录 -->
     <view class="uploader">
-      <button bindtap="addRecrod">插入数据库记录</button>
+      <text bindtap="addRecord" class="uploader-text">插入数据库记录</text>
+      <text bindtap="getRecord" class="uploader-text">获取数据库记录</text>
     </view>
+
 </view>
