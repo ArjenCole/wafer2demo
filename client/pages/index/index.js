@@ -220,7 +220,8 @@ Page({
     },
 
     addRecord: function(){
-      wx.cloud.init();
+      console.log("add");
+      wx.cloud.init({ env: 'test-f83f7a'});
       const db = wx.cloud.database();
       const bond = db.collection('bond');
       db.collection('bond').add({
